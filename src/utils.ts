@@ -6,7 +6,7 @@ interface Token {
   userId: string;
 }
 
-export function getUserId(token: string): string {
+export function getUserId(token: string | null) {
   if (token) {
     const apiToken = token.replace('Bearer ', '');
     const verifiedToken = verify(apiToken, JWT_SECRET) as Token;

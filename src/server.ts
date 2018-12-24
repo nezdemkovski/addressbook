@@ -26,3 +26,5 @@ app.listen(PORT, () => {
   /* tslint:disable-next-line:no-console */
   console.log(`Listening at http://localhost:${PORT}/`);
 });
+
+export default app;

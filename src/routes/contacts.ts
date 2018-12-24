@@ -7,7 +7,7 @@ const router: Router = Router();
 
 // Get list of contacts
 router.get('/', async (req: Request, res: Response) => {
-  const userId = getUserId(req.headers.authorization);
+  const userId = getUserId(req.headers.authorization || '');
 
   if (!userId) {
     return res.status(401).json({ errors: 'Unauthorized' });
@@ -20,7 +20,7 @@ router.get('/', async (req: Request, res: Response) => {
 
 // Create new contact
 router.post('/create', async (req: Request, res: Response) => {
-  const userId = getUserId(req.headers.authorization);
+  const userId = getUserId(req.headers.authorization || '');
 
   if (!userId) {
     return res.status(401).json({ errors: 'Unauthorized' });
