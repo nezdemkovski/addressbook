@@ -4,11 +4,14 @@ import express from 'express';
 import logger from 'morgan';
 
 import { PORT } from './config';
-import startDB from './db/db';
+import initFirebase from './db/firebase';
+import initMongoDB from './db/mongodb';
+import contactsRouter from './routes/contacts';
 import indexRouter from './routes/index';
 import usersRouter from './routes/users';
 
-startDB();
+initMongoDB();
+initFirebase();
 debug('strv:server');
 const app: express.Application = express();
 
@@ -17,6 +20,7 @@ app.use(bodyParser.json());
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/contacts', contactsRouter);
 
 app.listen(PORT, () => {
   /* tslint:disable-next-line:no-console */

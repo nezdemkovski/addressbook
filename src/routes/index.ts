@@ -1,21 +1,10 @@
-import { NextFunction, Request, Response, Router } from 'express';
-
-import User from '../db/models/User';
+import { Request, Response, Router } from 'express';
 
 const router: Router = Router();
 
-// @ts-ignore
-router.get('/', async (req: Request, res: Response, next: NextFunction) => {
-  const asd = await User.create({
-    email: 'hi@mynameisyuri.com',
-    password: 'testpass',
-    name: 'Yuri',
-  });
-
-  console.log(asd);
-
+router.get('/', async (_: Request, res: Response) => {
   res.send({
-    data: asd,
+    data: 'Hello from Yuri!',
   });
 });
 
