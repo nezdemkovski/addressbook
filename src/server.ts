@@ -4,11 +4,11 @@ import express from 'express';
 import logger from 'morgan';
 
 import { PORT } from './config';
-import db from './db';
+import startDB from './db/db';
 import indexRouter from './routes/index';
 import usersRouter from './routes/users';
 
-db();
+startDB();
 debug('strv:server');
 const app: express.Application = express();
 

@@ -1,8 +1,9 @@
 import mongoose from 'mongoose';
 
-import { MONGO_URL } from './config';
+import { MONGO_URL } from '../config';
 
-// (mongoose as any).Promise = bluebird;
+(mongoose as any).Promise = global.Promise;
+
 export default () =>
   mongoose
     .connect(

@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response, Router } from 'express';
 
-import User from '../models/User';
+import User from '../db/models/User';
 
 const router: Router = Router();
 
