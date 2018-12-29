@@ -8,18 +8,9 @@ import User from '../db/models/User';
 
 const router: Router = Router();
 
-// Get list of users
-router.get('/', async (_: Request, res: Response) => {
-  const data = await User.find();
-
-  res.send({
-    data,
-  });
-});
-
-// Create user
+// Register new user
 router.post(
-  '/create',
+  '/register',
   [
     check('email')
       .isEmail()
@@ -55,7 +46,7 @@ router.post(
 );
 
 // Sign in user
-router.get(
+router.post(
   '/signin',
   [
     check('email')

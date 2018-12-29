@@ -8,7 +8,7 @@
     "lint": "tsc --noEmit -p tsconfig.json && tslint -c tslint.json -p tsconfig.json",
     "lint:fix": "tslint -c tslint.json -p tsconfig.json --fix",
     "test": "jest --forceExit --coverage --verbose",
-    "prettier": "prettier --write '{src,tests}/**/*.tsx'",
+    "prettier": "prettier --write '{src,tests}/**/*.ts'",
     "test-ci": "echo tests",
     "postinstall": "yarn build"
   },
