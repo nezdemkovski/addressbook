@@ -1,0 +1,27 @@
+language: node_js
+node_js:
+  - 'node'
+
+cache:
+  yarn: true
+  directories:
+    - node_modules
+
+notifications:
+  email:
+    on_success: change
+    on_failure: always
+
+stages:
+  - test
+  - build
+
+jobs:
+  include:
+    - stage: test
+      script:
+        - yarn test-ci
+
+    - stage: build
+      script:
+        - yarn build

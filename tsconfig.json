@@ -5,18 +5,11 @@
     "module": "commonjs",
     "lib": ["dom", "es2017"],
     "moduleResolution": "node",
+    "rootDir": "src",
     "outDir": "dist",
-    "allowJs": true,
-    "noEmit": true,
-    "noImplicitAny": true,
-    "allowSyntheticDefaultImports": true,
-    "skipLibCheck": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "removeComments": false,
-    "preserveConstEnums": true,
+    "removeComments": true,
     "sourceMap": true,
     "esModuleInterop": true
   },
-  "include": ["src/**/*"]
+  "exclude": ["tests/**/*"]
 }

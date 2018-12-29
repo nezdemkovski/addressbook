@@ -1,6 +1,6 @@
 import admin from 'firebase-admin';
 
-import serviceAccountKey from '../../serviceAccountKey';
+import serviceAccountKey from '../serviceAccountKey';
 
 interface Contact {
   fullName: string;

@@ -1,13 +1,16 @@
 {
-  "name": "strv",
+  "name": "addressbook",
   "version": "1.0.0",
-  "main": "src/server.ts",
+  "main": "src/index.ts",
   "scripts": {
-    "start": "nodemon -e ts -x ts-node src/server.ts",
+    "dev": "nodemon -e ts -x ts-node src/index.ts",
     "build": "rimraf dist && tsc --build --verbose",
     "lint": "tsc --noEmit -p tsconfig.json && tslint -c tslint.json -p tsconfig.json",
     "lint:fix": "tslint -c tslint.json -p tsconfig.json --fix",
-    "test": "jest --forceExit --coverage --verbose"
+    "test": "jest --forceExit --coverage --verbose",
+    "prettier": "prettier --write '{src,tests}/**/*.tsx'",
+    "test-ci": "echo tests",
+    "postinstall": "yarn build"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -18,7 +21,7 @@
     "express-validator": "^5.3.1",
     "firebase-admin": "^6.4.0",
     "jsonwebtoken": "^8.4.0",
-    "mongoose": "^5.4.0",
+    "mongoose": "^5.4.1",
     "morgan": "^1.9.0"
   },
   "devDependencies": {
