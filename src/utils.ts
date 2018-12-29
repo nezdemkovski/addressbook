@@ -14,5 +14,3 @@ export function getUserId(token: string | null) {
     return verifiedToken && verifiedToken.userId;
   }
 }
-
-// const sanitizeData = () => {};

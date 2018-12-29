@@ -1,6 +1,11 @@
 import admin from 'firebase-admin';
 
-import serviceAccountKey from '../serviceAccountKey';
+import {
+  FIREBASE_CLIENT_EMAIL,
+  FIREBASE_DB_URL,
+  FIREBASE_PRIVATE_KEY,
+  FIREBASE_PROJECT_ID,
+} from '../config';
 
 interface Contact {
   fullName: string;
@@ -12,10 +17,12 @@ const initFirebase = async () => {
   try {
     admin
       .initializeApp({
-        credential: admin.credential.cert(serviceAccountKey as
-          | string
-          | admin.ServiceAccount),
-        databaseURL: 'https://strv-contacts-b4146.firebaseio.com',
+        credential: admin.credential.cert({
+          projectId: FIREBASE_PROJECT_ID,
+          clientEmail: FIREBASE_CLIENT_EMAIL,
+          privateKey: FIREBASE_PRIVATE_KEY,
+        }),
+        databaseURL: FIREBASE_DB_URL,
       })
       .firestore()
       .settings({ timestampsInSnapshots: true });
