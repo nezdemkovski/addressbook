@@ -131,6 +131,8 @@ Returns list of contacts of authorized user.
 
 - **Headers**
 
+  **Required:**
+
   `Authorization`: Bearer token
 
 - **URL Params**
@@ -164,6 +166,8 @@ Returns a newly created contact.
   `POST`
 
 - **Headers**
+
+  **Required:**
 
   `Authorization`: Bearer token
 

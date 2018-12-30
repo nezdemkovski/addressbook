@@ -10,8 +10,6 @@ import contactsRouter from './routes/contacts';
 import indexRouter from './routes/index';
 import usersRouter from './routes/users';
 
-initMongoDB();
-initFirebase();
 debug('strv:server');
 const app: express.Application = express();
 
@@ -22,9 +20,14 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/contacts', contactsRouter);
 
-app.listen(PORT, () => {
-  /* tslint:disable-next-line:no-console */
-  console.log(`Listening at http://localhost:${PORT}/`);
-});
+if (process.env.NODE_ENV !== 'test') {
+  initMongoDB();
+  initFirebase();
+
+  app.listen(PORT, () => {
+    /* tslint:disable-next-line:no-console */
+    console.log(`Listening at http://localhost:${PORT}/`);
+  });
+}
 
 export default app;
